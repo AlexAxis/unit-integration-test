@@ -98,3 +98,6 @@ git add *<br />
 git add .env<br />
 git reset HEAD yarn.lock<br />
 git commit -m "Initial commit of my components without tests"
+
+# Test commands
+yarn run test<br />
