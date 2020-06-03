@@ -73,14 +73,28 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### Commands used:
 
 # Create our application:
-npx create-react-app unit-integration-test
+npx create-react-app unit-integration-test<br />
 cd unit-integration-test
 
 # Add packages
 yarn add -D enzyme enzyme-adapter-react-16 jest jest-enzyme
 
 # Git commands
-git status
-git add *
-git commit -m "Basic config of our testing"
+git status<br />
+git add *<br />
+git commit -m "Basic config of our testing"<br />
+git remote add origin https://github.com/AlexAxis/unit-integration-test.git<br />
+git push -u origin master   
 
+# Git branch
+git checkout -b testingComponents<br />
+git status
+
+# Add SCSS
+yarn add node-sass
+
+# Git commands
+git add *<br />
+git add .env<br />
+git reset HEAD yarn.lock<br />
+git commit -m "Initial commit of my components without tests"
