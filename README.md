@@ -101,3 +101,9 @@ git commit -m "Initial commit of my components without tests"
 
 # Test commands
 yarn run test<br />
+
+# Git commands to push branch
+git add *<br />
+git commit -m "Headline component with tests"<br />
+git status<br />
+git push origin testingComponents
