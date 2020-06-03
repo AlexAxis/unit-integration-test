@@ -66,3 +66,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+----------------------------------
+
+### Commands used:
+
+# Create our application:
+npx create-react-app unit-integration-test
+cd unit-integration-test
+
+# Add packages
+yarn add -D enzyme enzyme-adapter-react-16 jest jest-enzyme
+
+# Git commands
+git status
+git add *
+git commit -m "Basic config of our testing"
+
