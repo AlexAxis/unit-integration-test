@@ -70,40 +70,46 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ----------------------------------
 
-### Commands used:
+# Commands used:
 
-# Create our application:
+### Create our application:
 npx create-react-app unit-integration-test<br />
 cd unit-integration-test
 
-# Add packages
+### Add packages
 yarn add -D enzyme enzyme-adapter-react-16 jest jest-enzyme
 
-# Git commands
+### Git commands
 git status<br />
 git add *<br />
 git commit -m "Basic config of our testing"<br />
 git remote add origin https://github.com/AlexAxis/unit-integration-test.git<br />
 git push -u origin master   
 
-# Git branch
+### Git branch
 git checkout -b testingComponents<br />
 git status
 
-# Add SCSS
+### Add SCSS
 yarn add node-sass
 
-# Git commands
+### Git commands
 git add *<br />
 git add .env<br />
 git reset HEAD yarn.lock<br />
 git commit -m "Initial commit of my components without tests"
 
-# Test commands
+### Test commands
 yarn run test<br />
 
-# Git commands to push branch
+### Git commands to push branch
 git add *<br />
 git commit -m "Headline component with tests"<br />
 git status<br />
 git push origin testingComponents
+
+### Add prop-types package
+npm install --save prop-types
+
+### Add check-prop-types (dev environment -> for the tests)
+npm install --save-dev check-prop-types

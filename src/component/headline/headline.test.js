@@ -11,27 +11,28 @@ const setUp = (props={}) => {
 
 describe('Headline Component', () => {
 
-    // describe('Checking PropTypes', () => {
+    https://github.com/facebook/prop-types
+    describe('Checking PropTypes', () => {
 
-    //     it('Should not throw a warning', () => {
+        it('Should not throw a warning', () => {
 
-    //         const expectedProps = {
-    //             header: 'Test Header',
-    //             desc: 'Test Desc',
-    //             tempArr: [{
-    //                 fName: 'Test fName',
-    //                 lName: 'Test lName',
-    //                 email: 'test@email.com',
-    //                 age: 23,
-    //                 onlineStatus: false
-    //             }]
-    //         };
-    //         const propsErr = checkProps(Headline, expectedProps)
-    //         expect(propsErr).toBeUndefined();
+            const expectedProps = {
+                header: 'Test Header',
+                desc: 'Test Desc',
+                tempArr: [{
+                    fName: 'Test fName',
+                    lName: 'Test lName',
+                    email: 'test@email.com',
+                    age: 23,
+                    onlineStatus: false
+                }]
+            };
+            const propsErr = checkProps(Headline, expectedProps)
+            expect(propsErr).toBeUndefined();
 
-    //     });
+        });
 
-    // });
+    });
 
     describe('Have props', () => {
 
