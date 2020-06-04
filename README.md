@@ -113,3 +113,12 @@ npm install --save prop-types
 
 ### Add check-prop-types (dev environment -> for the tests)
 npm install --save-dev check-prop-types
+
+### Git commands after prop-types
+git add *<br />
+git reset HEAD package-lock.json<br />
+git commit -m "Adding PropTypes to our headline component"<br />
+git push origin testingComponents
+
+### Add redux
+npm i redux react-redux redux-thunk
