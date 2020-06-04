@@ -134,3 +134,19 @@ npm add @babel/runtime
 ### Check the latest version of a package to install it
 npm view react-redux versions<br />
 ...you then copy paste the version ('7.2.0') into the package.json so then do the 'npm i'
+
+### Add git hooks (husky)
+npm install husky --save-dev<br />
+... https://github.com/typicode/husky<br />
+... add this to package.json<br />
+ "husky": {
+    "hooks": {
+      "pre-commit": "CI=true npm test",
+      "pre-push": "CI=true npm test",
+    }
+  }
+
+
+
+
+
