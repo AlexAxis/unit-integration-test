@@ -130,3 +130,7 @@ npm install --save-dev moxios
 ### ERROR bug (cannot find module node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireDefault')
 yarn add -D moxios (di this and got the error)<br />
 npm add @babel/runtime
+
+### Check the latest version of a package to install it
+npm view react-redux versions<br />
+...you then copy paste the version ('7.2.0') into the package.json so then do the 'npm i'
