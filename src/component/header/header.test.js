@@ -18,7 +18,7 @@ describe('Header Component', () => {
     describe('Nested', () => {
 
         let component
-        //--- this beforeEach runs everytime before each single test
+        //--- this beforeEach runs everytime before each single test (it or test) inside a 'describe'
         beforeEach(() => {
             component = setUp()
         })

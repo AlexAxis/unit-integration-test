@@ -52,19 +52,40 @@ const tempArr = [{
   onlineStatus: true
 }];
 
+const initialState = {
+  hideBtn: false
+};
+
 class App extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      ...initialState
+    }
     this.fetch = this.fetch.bind(this);
   }
 
-  fetch(){
+  fetch() {
     this.props.fetchPosts();
+    this.exampleMethod_updatesState();
+  }
+
+
+  exampleMethod_updatesState() {
+    const { hideBtn } = this.state;
+    this.setState({
+      hideBtn: !hideBtn
+    });
+  }
+
+  exampleMethod_returnsAValue(number) {
+    return number + 1;
   }
 
   render() {
     const { posts } = this.props;
+    const { hideBtn } = this.state;
 
     const configButton = {
       buttonText: 'Get posts',
@@ -74,13 +95,25 @@ class App extends Component {
     return (
       <div className="App" data-test="appComponent">
 
-       <p>React Redux Unit and Integration Testing with Jest and Enzyme</p>
-       <p>https://www.youtube.com/watch?v=EgJZv9Iyj-E</p>
+        <p>React Redux Unit and Integration Testing with Jest and Enzyme</p>
+        <p>https://www.youtube.com/watch?v=EgJZv9Iyj-E</p>
+        <p>https://github.com/simpletut/Testing-React-Redux-with-Jest-and-Enzyme</p>
 
         <Header />
         <section className="main">
           <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
-          <SharedButton {...configButton} />
+          {!hideBtn &&
+            <SharedButton {...configButton} />
+          }
+
+          {/* {posts.length === 0 &&
+            <SharedButton {...configButton} />
+          } */}
+
+          {/* <SharedButton {...configButton} /> */}
+
+
+
           {posts.length > 0 &&
             <div>
               {posts.map((post, index) => {
@@ -107,4 +140,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchPosts})(App);
+export default connect(mapStateToProps, { fetchPosts })(App);
