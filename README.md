@@ -122,3 +122,11 @@ git push origin testingComponents
 
 ### Add redux
 npm i redux react-redux redux-thunk
+
+### Add axios and moxios(mock the axios)
+npm install axios<br />
+npm install --save-dev moxios
+
+### ERROR bug (cannot find module node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireDefault')
+yarn add -D moxios (di this and got the error)<br />
+npm add @babel/runtime

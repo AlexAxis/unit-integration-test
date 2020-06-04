@@ -1,7 +1,7 @@
 import checkPropTypes from 'check-prop-types';
-// import { applyMiddleware, createStore } from 'redux';
-// import rootReducer from './../src/reducers';
-// import { middlewares } from './../src/createStore';
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from './../src/reducers';
+import { middlewares } from './../src/createStore';
 
 export const findByTestAtrr = (component, attr) => {
     const wrapper = component.find(`[data-test='${attr}']`);
@@ -13,7 +13,9 @@ export const checkProps = (component, expectedProps) => {
     return propsErr;
 };
 
-// export const testStore = (initialState) => {
-//     const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
-//     return createStoreWithMiddleware(rootReducer, initialState);
-// };
+
+//this is to be able to test the store
+export const testStore = (initialState) => {
+    const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+    return createStoreWithMiddleware(rootReducer, initialState);
+};

@@ -1,32 +1,110 @@
-import React from 'react';
-import Header from './component/header'
+// import React from 'react';
+// import Header from './component/header'
+// import Headline from './component/headline';
+// import './app.scss'
+
+// /* This const is not used within our app.
+//    Although we are passing it to the Headline Component
+//    it is only here as an exampleof testing PropTypes */
+//    const tempArr = [{
+//     fName: 'Joe',
+//     lName: 'Bloggs',
+//     email: 'joebloggs@gmail.com',
+//     age: 24,
+//     onlineStatus: true
+//   }];
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <p>React Redux Unit and Integration Testing with Jest and Enzyme</p>
+//       <p>https://www.youtube.com/watch?v=EgJZv9Iyj-E</p>
+
+//       <Header />
+//       <section className="main">
+//         <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
+//       </section>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+import React, { Component } from 'react';
+import Header from './component/header';
 import Headline from './component/headline';
-import './app.scss'
+import SharedButton from './component/button';
+import ListItem from './component/listItem';
+import { connect } from 'react-redux';
+import { fetchPosts } from './actions';
+import './app.scss';
 
 /* This const is not used within our app.
    Although we are passing it to the Headline Component
    it is only here as an exampleof testing PropTypes */
-   const tempArr = [{
-    fName: 'Joe',
-    lName: 'Bloggs',
-    email: 'joebloggs@gmail.com',
-    age: 24,
-    onlineStatus: true
-  }];
+const tempArr = [{
+  fName: 'Joe',
+  lName: 'Bloggs',
+  email: 'joebloggs@gmail.com',
+  age: 24,
+  onlineStatus: true
+}];
 
-function App() {
-  return (
-    <div className="App">
-      <p>React Redux Unit and Integration Testing with Jest and Enzyme</p>
-      <p>https://www.youtube.com/watch?v=EgJZv9Iyj-E</p>
+class App extends Component {
 
-      <Header />
-      <section className="main">
-        <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
-      </section>
+  constructor(props){
+    super(props);
+    this.fetch = this.fetch.bind(this);
+  }
 
-    </div>
-  );
+  fetch(){
+    this.props.fetchPosts();
+  }
+
+  render() {
+    const { posts } = this.props;
+
+    const configButton = {
+      buttonText: 'Get posts',
+      emitEvent: this.fetch
+    }
+
+    return (
+      <div className="App" data-test="appComponent">
+
+       <p>React Redux Unit and Integration Testing with Jest and Enzyme</p>
+       <p>https://www.youtube.com/watch?v=EgJZv9Iyj-E</p>
+
+        <Header />
+        <section className="main">
+          <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
+          <SharedButton {...configButton} />
+          {posts.length > 0 &&
+            <div>
+              {posts.map((post, index) => {
+                const { title, body } = post;
+                const configListItem = {
+                  title,
+                  desc: body
+                };
+                return (
+                  <ListItem key={index} {...configListItem} />
+                )
+              })}
+            </div>
+          }
+        </section>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps, {fetchPosts})(App);
