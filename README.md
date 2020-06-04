@@ -146,7 +146,8 @@ npm install husky --save-dev<br />
     }
   }
 
-
-
-
+### Git merge
+git checkout master<br />
+git merge testingComponents<br />
+... testingComponents = the name of the branch we want to merge
 
